@@ -41,3 +41,6 @@ This utility transforms an associative array mapping items to their owners into 
 
 ### Usage
 Given an input array of `["Baseball Bat" => "John", "Golf ball" => "Stan", "Tennis Racket" => "John"]`, the function will produce the following structure: `{"John":["Baseball Bat","Tennis Racket"],"Stan":["Golf ball"]}`.
+
+## Task 5: Fibonacci Sequence Generator
+A dynamic and visually appealing web application that generates the Fibonacci sequence up to a user-defined limit. This project showcases a clean separation of concerns with a modern frontend interface and a robust PHP backend.

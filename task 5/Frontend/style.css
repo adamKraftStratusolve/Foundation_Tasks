@@ -1,109 +1,170 @@
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f0f2f5;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
-    color: #333;
+    color: #fff;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-.container {
-    background-color: white;
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+    z-index: -1;
+}
+
+body::before {
+    width: 300px;
+    height: 300px;
+    top: -50px;
+    left: -100px;
+}
+
+body::after {
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    right: -150px;
+}
+
+
+
+.main-container {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-    transition: transform 0.3s ease;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 850px;
+    gap: 2.5rem;
+    transition: all 0.3s ease;
 }
 
-.container:hover {
-    transform: translateY(-5px);
+.input-section {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
 }
 
-h1 {
+.result-section {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+}
+
+
+h1, h2 {
     margin-top: 0;
     margin-bottom: 1.5rem;
-    color: #1a202c;
-    font-size: 1.75rem;
+    color: #fff; /* White text for contrast */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
 
 #first-div {
     margin-bottom: 1.5rem;
-    text-align: left;
 }
 
 #number-label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #4a5568;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 #number {
     width: 100%;
     padding: 12px 15px;
-    border: 1px solid #cbd5e0;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
-    box-sizing: border-box; /* Important for padding and width */
+    box-sizing: border-box;
     font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: #fff; /* White input text */
+    transition: all 0.3s ease;
 }
 
 #number::placeholder {
-    color: #a0aec0;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 #number:focus {
     outline: none;
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.4);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
+
 #submitBtn {
-    width: 100%;
-    padding: 12px 15px;
-    background: linear-gradient(90deg, #4F46E5, #818CF8);
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.25);
     color: white;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 8px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.2s ease;
+    align-self: flex-end;
+    margin-top: auto;
 }
 
 #submitBtn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
 }
 
 #submitBtn:active {
     transform: translateY(0);
 }
 
-
 #result {
-    margin-top: 1.5rem;
     padding: 1rem;
-    background-color: #f7fafc;
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    min-height: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     line-height: 1.6;
     word-wrap: break-word;
     text-align: left;
+    flex-grow: 1;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-@media (max-width: 480px) {
-    .container {
+#result strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+    }
+    .main-container {
+        flex-direction: column;
+        gap: 2rem;
         padding: 1.5rem;
+        margin-top: 2rem;
     }
 
-    h1 {
-        font-size: 1.5rem;
+    #submitBtn {
+        align-self: stretch;
     }
 }
