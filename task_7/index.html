@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Person Management Dashboard</h1>
+<div class="container">
+    <div class="form-section">
+        <h2 id="form-title">Add Person</h2>
+        <form id="person-form">
+            <input type="hidden" id="person-id">
+            <div class="form-group"><label for="first-name">First Name:</label><input type="text" id="first-name" required></div>
+            <div class="form-group"><label for="surname">Surname:</label><input type="text" id="surname" required></div>
+            <div class="form-group"><label for="dob">Date Of Birth:</label><input type="date" id="dob"></div>
+            <div class="form-group"><label for="email">Email Address:</label><input type="email" id="email" required></div>
+            <div class="form-group"><label for="age">Age:</label><input type="number" id="age" min="0"></div>
+            <div class="form-buttons"><button type="submit" id="submit-btn">Save Person</button><button type="button" id="cancel-btn">Cancel</button></div>
+        </form>
+    </div>
+
+    <div class="list-section">
+        <h2>Find a Person</h2>
+        <form id="find-person-form">
+            <div class="form-group"><label for="find-first-name">First Name:</label><input type="text" id="find-first-name" required></div>
+            <div class="form-group"><label for="find-surname">Surname:</label><input type="text" id="find-surname" required></div>
+            <div class="form-group"><label for="find-dob">Date Of Birth:</label><input type="date" id="find-dob" required></div>
+            <div class="find-form-buttons">
+                <button type="submit">Search</button>
+                <button type="button" id="show-all-btn">Show All</button>
+            </div>
+        </form>
+
+        <h2>People List</h2>
+        <input type="text" id="searchInput" placeholder="Filter current list by name or email...">
+        <table id="people-table">
+            <thead><tr><th>Name</th><th>Email</th><th>Date of Birth</th><th>Actions</th></tr></thead>
+            <tbody id="people-list-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

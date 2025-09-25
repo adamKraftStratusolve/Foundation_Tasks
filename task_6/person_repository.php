@@ -75,4 +75,19 @@ class PersonRepository {
 
         return $statement->rowCount() > 0;
     }
+
+    function updatePerson(Person $person) {
+        $sql = "UPDATE People SET FirstName=?, Surname=?, DateOfBirth=?, EmailAddress=?, Age=? WHERE PersonID=?";
+        $params = [
+            $person->firstName,
+            $person->surname,
+            $person->dateOfBirth,
+            $person->emailAddress,
+            $person->age,
+            $person->personId
+        ];
+
+        $statement = $this->run($sql, $params);
+        return $statement->rowCount() > 0;
+    }
 }

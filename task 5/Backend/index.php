@@ -1,6 +1,8 @@
 <?php
 require_once 'fibonacciWeb.php';
 
+//todo: Look at sessions.
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['number'])) {
 
     $userInput = $_POST['number'];
