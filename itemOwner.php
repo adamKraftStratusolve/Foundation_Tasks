@@ -2,13 +2,13 @@
 class ItemOwners {
     static function groupByOwners($itemsArr) {
 
-        $ownersMatrix = [];
+        $owners = [];
 
         foreach ($itemsArr as $item => $owner) {
-            $ownersMatrix[$owner][] = $item;
+            $owners[$owner][] = $item;
         }
 
-        return $ownersMatrix;
+        return $owners;
     }
 }
 

@@ -7,7 +7,7 @@ submitButton.addEventListener('click', function() {
     fetch('/task 5/Backend/index.php', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',//todo: investigate Json Type
+            'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: 'number=' + encodeURIComponent(userInput) // Changed key to 'number'
     })
