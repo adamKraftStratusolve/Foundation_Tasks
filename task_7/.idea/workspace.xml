@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07031c2c-22d2-416b-8b1f-12bd18da1f37" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../task_6.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_6/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../task_6/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_6/data_file.php" beforeDir="false" afterPath="$PROJECT_DIR$/../task_6/data_file.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_6/db_config.php" beforeDir="false" afterPath="$PROJECT_DIR$/../task_6/db_config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_6/person_controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/../task_6/person_controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_6/person_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/../task_6/person_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_6/person_repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/../task_6/person_repository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_6/script_logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/../task_6/script_logger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -97,6 +91,8 @@
       <workItem from="1758883415338" duration="965000" />
       <workItem from="1758889546473" duration="2000" />
       <workItem from="1758889551539" duration="6000" />
+      <workItem from="1759077773809" duration="158000" />
+      <workItem from="1759078036201" duration="90000" />
     </task>
     <servers />
   </component>
