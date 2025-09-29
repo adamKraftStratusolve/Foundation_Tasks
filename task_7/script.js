@@ -6,7 +6,6 @@ $(document).ready(function() {
 
     function fetchAndRenderTable() {
         $.getJSON(API_URL + '?action=read', function(data) {
-            console.log("Data from API:", data);
             localPeopleData = data;
             renderTable();
         }).fail(function() {
@@ -18,7 +17,6 @@ $(document).ready(function() {
         const searchTerm = $('#searchInput').val().toLowerCase();
         const filteredData = localPeopleData.filter(p => {
             if (!p) { return false; }
-            // MODIFIED: Use camelCase properties
             const firstName = p.firstName || '';
             const surname = p.surname || '';
             const emailAddress = p.emailAddress || '';
@@ -100,10 +98,8 @@ $(document).ready(function() {
         }
 
         if ($(this).hasClass('edit-btn')) {
-            // MODIFIED: Use camelCase property
             const person = localPeopleData.find(p => p.personId === id);
             if (person) {
-                // MODIFIED: Use camelCase properties
                 $('#person-id').val(person.personId);
                 $('#first-name').val(person.firstName);
                 $('#surname').val(person.surname);

@@ -46,7 +46,7 @@ switch ($action) {
         break;
 
     default:
-        http_response_code(400); // Bad Request
+        http_response_code(400);
         echo json_encode(['error' => 'Invalid action specified.']);
         break;
 }
