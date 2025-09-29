@@ -18,7 +18,6 @@ class PersonRepository {
     }
 
     function savePerson(Person $person) {
-
         $sql = "INSERT INTO People(FirstName, Surname, DateOfBirth, EmailAddress, Age) VALUES (?, ?, ?, ?, ?)";
         $params = [
             $person->firstName,
@@ -29,17 +28,13 @@ class PersonRepository {
         ];
 
         $statement = $this->run($sql, $params);
-        $data = $statement->fetch();
-
-        if (!$data) {
-            return null;
-        }
+        return $statement->rowCount() > 0;
     }
 
-    function loadPerson($FirstName, $Surname, $DateOfBirth) {
+    function loadPerson($firstName, $surname, $dateOfBirth) {
 
         $sql = "SELECT * FROM People WHERE FirstName = ? AND Surname = ? AND DateOfBirth = ?";
-        $params = [$FirstName, $Surname, $DateOfBirth];
+        $params = [$firstName, $surname, $dateOfBirth];
         $statement = $this->run($sql,$params);
         $data = $statement->fetch();
 
@@ -60,7 +55,7 @@ class PersonRepository {
         return $statement->rowCount() > 0;
     }
 
-    function loadALlPeople() {
+    function loadAllPeople() {
 
         $sql = "SELECT * FROM People;";
         $statement = $this->run($sql);

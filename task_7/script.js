@@ -1,11 +1,12 @@
 $(document).ready(function() {
-    const API_URL = 'api.php';
+    const API_URL = 'http://localhost:8080/api.php';
     const $personForm = $('#person-form');
     const $tableBody = $('#people-list-body');
     let localPeopleData = [];
 
     function fetchAndRenderTable() {
         $.getJSON(API_URL + '?action=read', function(data) {
+            console.log("Data from API:", data);
             localPeopleData = data;
             renderTable();
         }).fail(function() {
@@ -15,11 +16,17 @@ $(document).ready(function() {
 
     function renderTable() {
         const searchTerm = $('#searchInput').val().toLowerCase();
-        const filteredData = localPeopleData.filter(p =>
-            p.FirstName.toLowerCase().includes(searchTerm) ||
-            p.Surname.toLowerCase().includes(searchTerm) ||
-            p.EmailAddress.toLowerCase().includes(searchTerm)
-        );
+        const filteredData = localPeopleData.filter(p => {
+            if (!p) { return false; }
+            // MODIFIED: Use camelCase properties
+            const firstName = p.firstName || '';
+            const surname = p.surname || '';
+            const emailAddress = p.emailAddress || '';
+
+            return firstName.toLowerCase().includes(searchTerm) ||
+                surname.toLowerCase().includes(searchTerm) ||
+                emailAddress.toLowerCase().includes(searchTerm);
+        });
 
         $tableBody.empty();
 
@@ -30,16 +37,16 @@ $(document).ready(function() {
 
         filteredData.forEach(function(person) {
             $tableBody.append(`
-                <tr>
-                    <td>${person.FirstName} ${person.Surname}</td>
-                    <td>${person.EmailAddress}</td>
-                    <td>${person.DateOfBirth || 'N/A'}</td>
-                    <td class="actions">
-                        <button class="edit-btn" data-id="${person.PersonID}">Edit</button>
-                        <button class="delete-btn" data-id="${person.PersonID}">Delete</button>
-                    </td>
-                </tr>
-            `);
+            <tr>
+                <td>${person.firstName} ${person.surname}</td>
+                <td>${person.emailAddress}</td>
+                <td>${person.dateOfBirth || 'N/A'}</td>
+                <td class="actions">
+                    <button class="edit-btn" data-id="${person.personId}">Edit</button>
+                    <button class="delete-btn" data-id="${person.personId}">Delete</button>
+                </td>
+            </tr>
+        `);
         });
     }
 
@@ -93,14 +100,16 @@ $(document).ready(function() {
         }
 
         if ($(this).hasClass('edit-btn')) {
-            const person = localPeopleData.find(p => p.PersonID === id);
+            // MODIFIED: Use camelCase property
+            const person = localPeopleData.find(p => p.personId === id);
             if (person) {
-                $('#person-id').val(person.PersonID);
-                $('#first-name').val(person.FirstName);
-                $('#surname').val(person.Surname);
-                $('#dob').val(person.DateOfBirth);
-                $('#email').val(person.EmailAddress);
-                $('#age').val(person.Age);
+                // MODIFIED: Use camelCase properties
+                $('#person-id').val(person.personId);
+                $('#first-name').val(person.firstName);
+                $('#surname').val(person.surname);
+                $('#dob').val(person.dateOfBirth);
+                $('#email').val(person.emailAddress);
+                $('#age').val(person.age);
                 $('#form-title').text('Edit Person');
                 $('#submit-btn').text('Update Person');
                 window.scrollTo(0, 0);
